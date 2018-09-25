@@ -56,50 +56,6 @@
           "response": []
         },
         {
-          "_postman_id": "927d670a-525d-4bef-93eb-c2d67defdc96",
-          "name": "Login - empty fields Copy",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "7494d48f-5453-44f6-8651-66cd83c876cf",
-                "type": "text/javascript",
-                "exec": [
-                  "pm.test(\"C44085 Status code is 400\", function () {",
-                  "    pm.response.to.have.status(400);",
-                  "});",
-                  "",
-                  "pm.test(\"C44085 Error message is returned\", function () {",
-                  "    var jsonData = pm.response.json();",
-                  "    pm.expect(jsonData.message).to.eql(\"Missing credentials\");",
-                  "});",
-                  "",
-                  "pm.test(\"C44085 Response time is less than 200ms\", function () {",
-                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
-                  "});",
-                  "",
-                  ""
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\"username\":\"\",\"password\":\"\",\"timezone\":\"America/New_York\"}"
-            },
-            "url": "http://{{url}}/api/login"
-          },
-          "response": []
-        },
-        {
           "_postman_id": "2c2a4e4b-12ac-4774-ab9f-d74fb2473853",
           "name": "Login - empty password",
           "event": [
