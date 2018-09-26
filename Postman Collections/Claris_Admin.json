@@ -6628,7 +6628,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "401cd70c-725d-4637-8cdb-3a75260bbd3a",
+                    "id": "034f8b3a-4b2f-464a-b224-5039e00ad023",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"C44703 The id is not null\", function () {",
@@ -6640,7 +6640,7 @@
                       "    var jsonData = pm.response.json();",
                       "    var user_Name = pm.environment.get(\"user_Name\");",
                       "    pm.expect(jsonData.code).to.eql(200);",
-                      "    pm.expect(jsonData.success).to.eql(True);",
+                      "    pm.expect(jsonData.success).to.eql(true);",
                       "    pm.expect(jsonData.warnings).to.eql(null);",
                       "    pm.expect(jsonData.errors).to.eql(null);",
                       "});",
@@ -6670,7 +6670,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"username\": \"EDITED {{user_Name}}\",\n\t\"role_id\": \"{{operator_role_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Vlade\",\n\t\t\"last\": \"Divac\"\n\t},\n\t\"email\": \"vdivac{{$timestamp}}@test.com\",\n\t\"phones\": [3012564585],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"Camera Techie\",\n\t\"department\": \"VDOT\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"{{password}}\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\"\n}"
+                  "raw": "{\n\t\"username\": \"EDITED {{user_Name}}\",\n\t\"role_id\": \"{{$timestamp}}\",\n\t\"name\": {\n\t\t\"first\": \"Vlade\",\n\t\t\"last\": \"Divac\"\n\t},\n\t\"email\": \"vdivac{{$timestamp}}@test.com\",\n\t\"phones\": [3012564585],\n\t\"credentials\": [],\n\t\"level_id\": \"{{$timestamp}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"Camera Techie\",\n\t\"department\": \"VDOT\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"{{password}}\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\"\n}"
                 },
                 "url": "http://{{url}}/api/users/{{user_ID}}",
                 "description": "tries to patch an existing user with no key field data."
