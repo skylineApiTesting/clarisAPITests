@@ -6506,6 +6506,63 @@
               "response": []
             },
             {
+              "_postman_id": "dec9f976-99b5-4d8a-ba61-de91f2c85d39",
+              "name": "Patch User Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "00e4d23c-c9b8-4fbe-b910-373f409fcb8a",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"C44703 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    var user_Name = pm.environment.get(\"user_Name\");",
+                      "    pm.expect(jsonData.code).to.eql(200);",
+                      "    pm.expect(jsonData.success).to.eql(true);",
+                      "    pm.expect(jsonData.results.username).to.eql(\"EDITED \" + user_Name);",
+                      "    pm.expect(jsonData.warnings).to.eql(null);",
+                      "    pm.expect(jsonData.errors).to.eql(null);",
+                      "});",
+                      "",
+                      "//This API returns a single record. So the results should be an object.",
+                      "pm.test(\"C44703 Verify that the results is an object\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(typeof jsonData.results).to.eql(\"object\");",
+                      "});",
+                      "",
+                      "pm.test(\"C44703 Verify that created and modified fields are included in the response\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.results).to.have.property('created');",
+                      "    pm.expect(jsonData.results).to.have.property('modified');",
+                      "});",
+                      "",
+                      "pm.test(\"C44703 Verify that status code in the response matches the HTTP status code\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.code).to.eql(responseCode.code);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"username\": \"EDITED {{user_Name}}\",\n\t\"role_id\": \"{{operator_role_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Nancy\",\n\t\t\"last\": \"Williams\"\n\t},\n\t\"email\": \"nwilliams{{$timestamp}}@test.com\",\n\t\"phones\": [],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"Camera Techie\",\n\t\"department\": \"VDOT\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"{{password}}\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\"\n}"
+                },
+                "url": "http://{{url}}/api/users/{{user_ID}}",
+                "description": "updates a user\n\ntriggered by:\nediting a user and saving\n\ntests:\n1) 200 code\n2) 200 ms response\n3) checks for changes that were patched to the user\n"
+              },
+              "response": []
+            },
+            {
               "_postman_id": "22847627-f77f-4b4c-aa22-b6b226789195",
               "name": "Patch User - empty fields",
               "event": [
@@ -6674,63 +6731,6 @@
                 },
                 "url": "http://{{url}}/api/users/{{user_ID}}",
                 "description": "tries to patch an existing user with no key field data."
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "dec9f976-99b5-4d8a-ba61-de91f2c85d39",
-              "name": "Patch User Copy",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "00e4d23c-c9b8-4fbe-b910-373f409fcb8a",
-                    "type": "text/javascript",
-                    "exec": [
-                      "pm.test(\"C44703 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
-                      "    var jsonData = pm.response.json();",
-                      "    var user_Name = pm.environment.get(\"user_Name\");",
-                      "    pm.expect(jsonData.code).to.eql(200);",
-                      "    pm.expect(jsonData.success).to.eql(true);",
-                      "    pm.expect(jsonData.results.username).to.eql(\"EDITED \" + user_Name);",
-                      "    pm.expect(jsonData.warnings).to.eql(null);",
-                      "    pm.expect(jsonData.errors).to.eql(null);",
-                      "});",
-                      "",
-                      "//This API returns a single record. So the results should be an object.",
-                      "pm.test(\"C44703 Verify that the results is an object\", function () {",
-                      "    var jsonData = pm.response.json();",
-                      "    pm.expect(typeof jsonData.results).to.eql(\"object\");",
-                      "});",
-                      "",
-                      "pm.test(\"C44703 Verify that created and modified fields are included in the response\", function () {",
-                      "    var jsonData = pm.response.json();",
-                      "    pm.expect(jsonData.results).to.have.property('created');",
-                      "    pm.expect(jsonData.results).to.have.property('modified');",
-                      "});",
-                      "",
-                      "pm.test(\"C44703 Verify that status code in the response matches the HTTP status code\", function () {",
-                      "    var jsonData = pm.response.json();",
-                      "    pm.expect(jsonData.code).to.eql(responseCode.code);",
-                      "});"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"username\": \"EDITED {{user_Name}}\",\n\t\"role_id\": \"{{operator_role_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Nancy\",\n\t\t\"last\": \"Williams\"\n\t},\n\t\"email\": \"nwilliams{{$timestamp}}@test.com\",\n\t\"phones\": [],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"Camera Techie\",\n\t\"department\": \"VDOT\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"{{password}}\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\"\n}"
-                },
-                "url": "http://{{url}}/api/users/{{user_ID}}",
-                "description": "updates a user\n\ntriggered by:\nediting a user and saving\n\ntests:\n1) 200 code\n2) 200 ms response\n3) checks for changes that were patched to the user\n"
               },
               "response": []
             }
