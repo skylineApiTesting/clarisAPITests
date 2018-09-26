@@ -6684,12 +6684,12 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "ab53fda6-f827-476c-a8e3-de2ae78e5ec6",
+                    "id": "d9b6176b-d01d-405a-9a3f-b96477bc0801",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"C44715 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
                       "    var jsonData = pm.response.json();",
-                      "    var organization_id = pm.environment.get(\"organization_id\");",
+                      "    var user_Name = pm.environment.get(\"user_Name\");",
                       "    pm.expect(jsonData.code).to.eql(200);",
                       "    pm.expect(jsonData.success).to.eql(true);",
                       "    pm.expect(jsonData.results.success).to.eql(true);",
