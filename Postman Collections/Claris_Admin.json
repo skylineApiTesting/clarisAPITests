@@ -6670,7 +6670,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"username\": \"EDITED {{user_Name}}\",\n\t\"role_id\": \"{{operator_role_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Vlade\",\n\t\t\"last\": \"Divac\"\n\t},\n\t\"email\": \"vdivac{{$timestamp}}@test.com\",\n\t\"phones\": [3012564585],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"Camera Techie\",\n\t\"department\": \"VDOT\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"YoMTVRaps\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\"\n}"
+                  "raw": "{\n\t\"username\": \"EDITED {{user_Name}}\",\n\t\"role_id\": \"{{operator_role_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Vlade\",\n\t\t\"last\": \"Divac\"\n\t},\n\t\"email\": \"vdivac{{$timestamp}}@test.com\",\n\t\"phones\": [3012564585],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"Camera Techie\",\n\t\"department\": \"VDOT\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"YoMTVRaps89!\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\"\n}"
                 },
                 "url": "http://{{url}}/api/users/{{user_ID}}",
                 "description": "tries to patch an existing user with no key field data."
