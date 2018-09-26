@@ -6737,7 +6737,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "19016fa6-0703-40dd-9820-f7ecf0f19c76",
+                    "id": "db438546-76e7-48f9-8ebc-6a6697dca8f6",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"C44703 The id is not null\", function () {",
@@ -6748,7 +6748,7 @@
                       "// Purpose: Verify that inactive can not be set to TRUE without a reason given.",
                       "pm.test(\"C44703 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
                       "    var jsonData = pm.response.json();",
-                      "    var user_Name = pm.environment.get(\"user_Name\");",
+                      "    var inactive_True = pm.environment.get(\"inactive_True\");",
                       "    pm.expect(jsonData.code).to.eql(500);",
                       "    pm.expect(jsonData.success).to.eql(false);",
                       "    pm.expect(jsonData.warnings).to.eql(null);",
