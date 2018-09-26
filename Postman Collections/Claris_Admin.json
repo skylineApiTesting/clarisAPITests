@@ -6684,7 +6684,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "d9b6176b-d01d-405a-9a3f-b96477bc0801",
+                    "id": "824b4505-73f3-482c-b4c4-385ed54bcedb",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"C44715 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
@@ -6692,7 +6692,7 @@
                       "    var user_Name = pm.environment.get(\"user_Name\");",
                       "    pm.expect(jsonData.code).to.eql(200);",
                       "    pm.expect(jsonData.success).to.eql(true);",
-                      "    pm.expect(jsonData.results.success).to.eql(true);",
+                      "    pm.expect(jsonData.results.organization_Name).to.eql(\"Aquaman University\");",
                       "    pm.expect(jsonData.warnings).to.eql(null);",
                       "    pm.expect(jsonData.errors).to.eql(null);",
                       "});",
