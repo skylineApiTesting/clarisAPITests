@@ -6610,7 +6610,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"username\": \"{{ special_characters }}\",\n\t\"role_id\": \"{{operator_role_id}}\",\n\t\"name\": {\n\t\t\"first\": \"{{ special_characters }}\",\n\t\t\"last\": \"{{ special_characters }}\"\n\t},\n\t\"email\": \"{{ special_characters }}\",\n\t\"phones\": [\"{{ special_characters }}\"],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"Camera Techie\",\n\t\"department\": \"VDOT\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"{{password}}\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\"\n}"
+                  "raw": "{\n\t\"username\": \"{{ special_characters }}\",\n\t\"role_id\": \"{{operator_role_id}}\",\n\t\"name\": {\n\t\t\"first\": \"{{ special_characters }}\",\n\t\t\"last\": \"{{ special_characters }}\"\n\t},\n\t\"email\": \"{{ special_characters }}@{{ special_characters }}.com\",\n\t\"phones\": [\"{{ special_characters }}\"],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"Camera Techie\",\n\t\"department\": \"VDOT\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"{{password}}\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\"\n}"
                 },
                 "url": "http://{{url}}/api/users/{{user_ID}}",
                 "description": "tries to patch an existing user with no key field data."
