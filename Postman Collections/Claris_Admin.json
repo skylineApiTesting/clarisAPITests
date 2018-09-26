@@ -6786,6 +6786,63 @@
                 "description": "tries to patch an existing user with no key field data."
               },
               "response": []
+            },
+            {
+              "_postman_id": "31926091-471b-4690-aea0-785f111038da",
+              "name": "Patch User - Deactivate User - Missing Reason Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "db438546-76e7-48f9-8ebc-6a6697dca8f6",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"C44703 The id is not null\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.results) === null;",
+                      "});",
+                      "",
+                      "// Purpose: Verify that inactive can not be set to TRUE without a reason given.",
+                      "pm.test(\"C44703 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    var inactive_True = pm.environment.get(\"inactive_True\");",
+                      "    pm.expect(jsonData.code).to.eql(500);",
+                      "    pm.expect(jsonData.success).to.eql(false);",
+                      "    pm.expect(jsonData.warnings).to.eql(null);",
+                      "    pm.expect(jsonData.errors).to.eql(null);",
+                      "});",
+                      "",
+                      "//This API returns a single record. So the results should be an object.",
+                      "pm.test(\"C44703 Verify that the results is an object\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(typeof jsonData.results).to.eql(\"object\");",
+                      "});",
+                      "",
+                      "",
+                      "pm.test(\"C44703 Verify that status code in the response matches the HTTP status code\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.code).to.eql(responseCode.code);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"username\": \"EDITED {{user_Name}}\",\n\t\"role_id\": \"{{operator_role_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Vlade\",\n\t\t\"last\": \"Divac\"\n\t},\n\t\"email\": \"vdivac{{$timestamp}}@test.com\",\n\t\"phones\": [3012564585],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"Camera Techie\",\n\t\"department\": \"VDOT\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"YoMTVRaps89!\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\",\n\t\"inactive\": \"{{inactive_True}}\"\n}"
+                },
+                "url": "http://{{url}}/api/users/{{user_ID}}",
+                "description": "tries to patch an existing user with no key field data."
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
