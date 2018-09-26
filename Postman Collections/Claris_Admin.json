@@ -6568,7 +6568,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "9be19722-0ece-46c6-909b-eafbae2766d3",
+                    "id": "cf37ff83-464c-49f0-bd1c-30af7df8104a",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"C44694 The id is not null\", function () {",
@@ -6582,7 +6582,11 @@
                       "    pm.expect(jsonData.code).to.eql(500);",
                       "    pm.expect(jsonData.success).to.eql(false);",
                       "    pm.expect(jsonData.warnings).to.eql(null);",
-                      "    pm.expect(jsonData.errors).to.eql([\"No value for first received. first is a required field for user\"]);",
+                      "    pm.expect(jsonData.errors).to.eql([",
+                      "        \"user username Must only contain alphanumeric characters and/or /.,!@#%&()_'\\\";:?+= -\",",
+                      "        \"user email \\\"{{ special_characters }}@{{ special_characters }}.com\\\" is not an email address.\",",
+                      "        \"user first Must only contain alphanumeric characters and/or /.,!@#%&()_'\\\";:?+= -\"",
+                      "    ]);",
                       "});",
                       "",
                       "//This API returns a single record. So the results should be an object.",
