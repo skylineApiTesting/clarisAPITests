@@ -6794,16 +6794,9 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "45082cf0-4bfb-4e5e-b2dd-ab78695f204f",
+                    "id": "b8171866-748e-4259-8c1c-75ae4c803ab7",
                     "type": "text/javascript",
                     "exec": [
-                      "pm.test(\"Check if user \", function () {",
-                      "    var jsonData = pm.response.json();",
-                      "    if (results[\"inactive\"] === true) {",
-                      "        results[\"inactive\"]  = false;",
-                      "    }",
-                      "}",
-                      "",
                       "pm.test(\"C44703 The id is not null\", function () {",
                       "    var jsonData = pm.response.json();",
                       "    pm.expect(jsonData.results) === null;",
@@ -6836,16 +6829,10 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "11838bc0-0de2-45a6-8459-4c116c0fec6b",
+                    "id": "12c9a58e-f279-4d0d-bf05-69cadaa0ae29",
                     "type": "text/javascript",
                     "exec": [
-                      "// function checkInactive() {",
-                      "//     var jsonData = pm.response.json();",
-                      "//     if (results[\"inactive\"] === true) {",
-                      "//         results[\"inactive\"]  = false;",
-                      "//     }",
-                      "// }",
-                      "// checkInactive();"
+                      ""
                     ]
                   }
                 }
