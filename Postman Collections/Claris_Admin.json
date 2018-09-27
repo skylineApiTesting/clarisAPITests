@@ -6794,7 +6794,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "db438546-76e7-48f9-8ebc-6a6697dca8f6",
+                    "id": "badd8ff0-bb1a-465e-b8f9-dabc2d3c0797",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"C44703 The id is not null\", function () {",
@@ -6825,6 +6825,16 @@
                       "});"
                     ]
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "9df6fb73-e50b-4c3b-beb8-040fe5ac6f8b",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.environment.set(\"inactive\", false)"
+                    ]
+                  }
                 }
               ],
               "request": {
@@ -6837,7 +6847,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"username\": \"EDITED {{user_Name}}\",\n\t\"role_id\": \"{{operator_role_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Vlade\",\n\t\t\"last\": \"Divac\"\n\t},\n\t\"email\": \"vdivac{{$timestamp}}@test.com\",\n\t\"phones\": [3012564585],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"Camera Techie\",\n\t\"department\": \"VDOT\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"YoMTVRaps89!\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\",\n\t\"inactive\": \"{{inactive_True}}\"\n}"
+                  "raw": "{\n\t\"username\": \"EDITED {{user_Name}}\",\n\t\"role_id\": \"{{operator_role_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Vlade\",\n\t\t\"last\": \"Divac\"\n\t},\n\t\"email\": \"vdivac{{$timestamp}}@test.com\",\n\t\"phones\": [3012564585],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"Camera Techie\",\n\t\"department\": \"VDOT\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"YoMTVRaps89!\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\"\n}"
                 },
                 "url": "http://{{url}}/api/users/{{user_ID}}",
                 "description": "tries to patch an existing user with no key field data."
