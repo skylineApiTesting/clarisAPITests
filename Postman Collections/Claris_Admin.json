@@ -6365,7 +6365,7 @@
             },
             {
               "_postman_id": "ec127ec2-1d52-4fa7-8545-615295a86202",
-              "name": "Patch marker - local device group Copy",
+              "name": "Patch marker - global device group",
               "event": [
                 {
                   "listen": "test",
