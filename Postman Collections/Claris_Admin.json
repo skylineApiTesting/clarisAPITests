@@ -6794,7 +6794,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "5f919a37-10c5-4782-a745-39d151ca5e9c",
+                    "id": "39b18462-2f79-4210-a2eb-53b73529d951",
                     "type": "text/javascript",
                     "exec": [
                       "pm.test(\"C45152 The id is not null\", function () {",
@@ -6802,17 +6802,10 @@
                       "    pm.expect(jsonData.results) === null;",
                       "});",
                       "",
-                      "// Verify the status of the user is currently activated(false)",
-                      "pm.test(\"C45152 is set to active\", function () {",
-                      "    var inactive_False = pm.environment.get(\"inactive_False\");",
-                      "    var jsonData = pm.response.json();",
-                      "    pm.expect(jsonData.results.inactive).to.eql(inactive_False);",
-                      "});",
-                      "",
                       "// Purpose: Verify you can deactivate/activate a user successfully",
                       "pm.test(\"C45152 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
                       "    var jsonData = pm.response.json();",
-                      "    var inactive_True = pm.environment.get(\"inactive_True\");",
+                      "    var inactive_True = pm.environment.get(\"inactive\");",
                       "    pm.expect(jsonData.code).to.eql(200);",
                       "    pm.expect(jsonData.success).to.eql(true);",
                       "    pm.expect(jsonData.warnings).to.eql(null);",
@@ -6837,10 +6830,12 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "12c9a58e-f279-4d0d-bf05-69cadaa0ae29",
+                    "id": "bed7e935-d911-49eb-bd44-0061630e1c24",
                     "type": "text/javascript",
                     "exec": [
-                      ""
+                      "(pm.environment.get(\"inactive\") == 'true') ",
+                      " ? pm.environment.set(\"inactive\", \"false\")",
+                      " : pm.environment.set(\"inactive\", \"true\");"
                     ]
                   }
                 }
@@ -6855,7 +6850,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"username\": \"EDITED {{user_Name}}\",\n\t\"role_id\": \"{{operator_role_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Vlade\",\n\t\t\"last\": \"Divac\"\n\t},\n\t\"email\": \"vdivac{{$timestamp}}@test.com\",\n\t\"phones\": [3012564585],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"Camera Techie\",\n\t\"department\": \"VDOT\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"YoMTVRaps89!\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\",\n\t\"inactive\": {{inactive_True}}\n}"
+                  "raw": "{\n\t\"username\": \"EDITED {{user_Name}}\",\n\t\"role_id\": \"{{operator_role_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Vlade\",\n\t\t\"last\": \"Divac\"\n\t},\n\t\"email\": \"vdivac{{$timestamp}}@test.com\",\n\t\"phones\": [3012564585],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"Camera Techie\",\n\t\"department\": \"VDOT\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"YoMTVRaps89!\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\",\n\t\"inactive\": \"{{inactive}}\"\n}"
                 },
                 "url": "http://{{url}}/api/users/{{user_ID}}",
                 "description": "tries to patch an existing user with no key field data."
