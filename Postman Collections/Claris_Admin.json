@@ -6830,9 +6830,11 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "bed7e935-d911-49eb-bd44-0061630e1c24",
+                    "id": "a176d9bf-10eb-4957-a143-b0d22731cb0a",
                     "type": "text/javascript",
                     "exec": [
+                      "// This is to toggle the inactive/active button of the user.",
+                      "// It is not required that a reason is given when setting the user to inactive.",
                       "(pm.environment.get(\"inactive\") == 'true') ",
                       " ? pm.environment.set(\"inactive\", \"false\")",
                       " : pm.environment.set(\"inactive\", \"true\");"
