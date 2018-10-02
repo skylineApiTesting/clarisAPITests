@@ -6301,6 +6301,67 @@
                 "description": "edit a marker of an organization"
               },
               "response": []
+            },
+            {
+              "_postman_id": "d6663328-3078-43fa-a444-32e05b0ba78e",
+              "name": "Patch marker Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "4f8b0a37-75d3-436a-8641-954ac946d1f2",
+                    "type": "text/javascript",
+                    "exec": [
+                      "//Looks for the basic objects associated with a Claris response, and verifies their values",
+                      "pm.test(\"C73597 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    var marker_Name = pm.environment.get(\"marker_Name\");",
+                      "    pm.expect(jsonData.code).to.eql(200);",
+                      "    pm.expect(jsonData.success).to.eql(true);",
+                      "    pm.expect(jsonData.results.title).to.eql(\"EDITED \" + marker_Name);",
+                      "    pm.expect(jsonData.warnings).to.eql(null);",
+                      "    pm.expect(jsonData.errors).to.eql(null);",
+                      "});",
+                      "",
+                      "//This API returns a single record. So the results should be an object.",
+                      "pm.test(\"C73597 Verify that the results is an object\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    console.log(jsonData.results);",
+                      "    pm.expect(typeof jsonData.results).to.eql(\"object\");",
+                      "});",
+                      "",
+                      "//Response should always include these fields",
+                      "pm.test(\"C73597 Verify that created and modified fields are included in the response\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.results).to.have.property('created');",
+                      "    pm.expect(jsonData.results).to.have.property('modified');",
+                      "});",
+                      "",
+                      "//Gets the code from the response and compares it to the HTTP response code",
+                      "pm.test(\"C73597 Verify that status code in the response matches the HTTP status code\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.code).to.eql(responseCode.code);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"server\": \"8.15.251.118\",\n\t\"stream\": \"dvg5wlp4k825rpmeef4x2058s4g0oj88\",\n\t\"dynamic\": false,\n\t\"prerollPort\": null,\n\t\"title\": \"EDITED {{marker_Name}}\",\n\t\"loc\": {\n\t\t\"type\": \"Point\",\n\t\t\"coordinates\": [\n\t\t\t\"-76.6246886\",\n\t\t\t\"39.1626084\"\n\t\t]\n\t},\n\t\"organization_id\": \"{{organization_ID}}\",\n\t\"region_id\": \"{{region_ID}}\",\n\t\"level_id\": \"{{marker_dg_level_ID}}\",\n\t\"type_id\": \"{{camera_type_id}}\",\n\t\"devgroups\": [\n\t],\n\t\"inactive\": false\n}"
+                },
+                "url": "http://{{url}}/api/markers/{{marker_ID}}",
+                "description": "edit a marker of an organization"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
