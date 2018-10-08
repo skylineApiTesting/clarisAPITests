@@ -6670,7 +6670,7 @@
             },
             {
               "_postman_id": "1dfffc4f-439f-47d5-8397-dec05d7b0c73",
-              "name": "Patch User level - edit with empty values Copy",
+              "name": "Patch User level - sql injection",
               "event": [
                 {
                   "listen": "test",
@@ -6716,7 +6716,7 @@
                   "raw": "{\n\t\"name\": \"\",\n\t\"description\": \"\"\n}"
                 },
                 "url": "http://{{url}}/api/userLevels/{{user_Level_ID}}",
-                "description": "using empty fields in form fields and trying to submit\n\n"
+                "description": "using empty fields in form fields and trying to submit\n\nattempts a sql injection"
               },
               "response": []
             }
