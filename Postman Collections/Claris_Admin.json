@@ -6569,10 +6569,10 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "d29c4df3-0840-49e0-924f-b87d87fc37d8",
+                    "id": "ba0a487a-7630-4ecc-a28e-167ad50539c6",
                     "type": "text/javascript",
                     "exec": [
-                      "pm.test(\"C54404 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
+                      "pm.test(\"C76308 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
                       "    var jsonData = pm.response.json();",
                       "    var user_Level_Name = pm.environment.get(\"user_Level_Name\");",
                       "    pm.expect(jsonData.code).to.eql(500);",
@@ -6585,13 +6585,13 @@
                       "});",
                       "",
                       "//This API returns a single record. So the results should be an object.",
-                      "pm.test(\"C54404 Verify that the results is an object\", function () {",
+                      "pm.test(\"C76308 Verify that the results is an object\", function () {",
                       "    var jsonData = pm.response.json();",
                       "    pm.expect(typeof jsonData.results).to.eql(\"object\");",
                       "});",
                       "",
                       "",
-                      "pm.test(\"C54404 Verify that status code in the response matches the HTTP status code\", function () {",
+                      "pm.test(\"C76308 Verify that status code in the response matches the HTTP status code\", function () {",
                       "    var jsonData = pm.response.json();",
                       "    pm.expect(jsonData.code).to.eql(responseCode.code);",
                       "});"
@@ -6618,7 +6618,7 @@
             },
             {
               "_postman_id": "55b569b9-c392-443f-aa04-a1a16ebed106",
-              "name": "Patch User level - edit with improper data types Copy",
+              "name": "Patch User level - edit with empty values",
               "event": [
                 {
                   "listen": "test",
@@ -6666,7 +6666,7 @@
                   "raw": "{\n\t\"name\": [],\n\t\"description\": 999\n}"
                 },
                 "url": "http://{{url}}/api/userLevels/{{user_Level_ID}}",
-                "description": "using wrong datatypes in form fields and trying to submit\n\nedit: seems like we accept booleans, ints, and strings but arrays cause a 500 error so they dont seem to be handled properly."
+                "description": "using empty fields in form fields and trying to submit\n\n"
               },
               "response": []
             }
