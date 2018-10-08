@@ -6623,29 +6623,27 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "d29c4df3-0840-49e0-924f-b87d87fc37d8",
+                    "id": "b7347fc5-70ad-4b62-8170-97ae0305a50a",
                     "type": "text/javascript",
                     "exec": [
-                      "pm.test(\"C54404 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
+                      "pm.test(\"C76309 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
                       "    var jsonData = pm.response.json();",
-                      "    var user_Level_Name = pm.environment.get(\"user_Level_Name\");",
                       "    pm.expect(jsonData.code).to.eql(500);",
                       "    pm.expect(jsonData.success).to.eql(false);",
                       "    pm.expect(jsonData.warnings).to.eql(null);",
                       "    pm.expect(jsonData.errors).to.eql([",
-                      "        \"userLevel name did not meet minimum length of 3.\",",
-                      "        \"userLevel name Must only contain alphanumeric characters and/or /.,!@#%&()_'\\\";:?+= -\"",
+                      "        \"No value for name received. name is a required field for userLevel\"",
                       "    ]);",
                       "});",
                       "",
                       "//This API returns a single record. So the results should be an object.",
-                      "pm.test(\"C54404 Verify that the results is an object\", function () {",
+                      "pm.test(\"C76309 Verify that the results is an object\", function () {",
                       "    var jsonData = pm.response.json();",
                       "    pm.expect(typeof jsonData.results).to.eql(\"object\");",
                       "});",
                       "",
                       "",
-                      "pm.test(\"C54404 Verify that status code in the response matches the HTTP status code\", function () {",
+                      "pm.test(\"C76309 Verify that status code in the response matches the HTTP status code\", function () {",
                       "    var jsonData = pm.response.json();",
                       "    pm.expect(jsonData.code).to.eql(responseCode.code);",
                       "});"
@@ -6663,7 +6661,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"name\": [],\n\t\"description\": 999\n}"
+                  "raw": "{\n\t\"name\": \"\",\n\t\"description\": \"\"\n}"
                 },
                 "url": "http://{{url}}/api/userLevels/{{user_Level_ID}}",
                 "description": "using empty fields in form fields and trying to submit\n\n"
