@@ -6564,20 +6564,15 @@
             },
             {
               "_postman_id": "b73085f2-4dcc-40aa-b579-d4e3fcf904b1",
-              "name": "Patch User level Copy",
+              "name": "Patch User level - edit with improper data types",
               "event": [
                 {
                   "listen": "test",
                   "script": {
-                    "id": "13aa2ef9-e9fb-4c7c-b4c4-f89ed4ceb63c",
+                    "id": "1d4a784e-abda-43cf-9da4-f3dca0c9ec47",
                     "type": "text/javascript",
                     "exec": [
-                      "pm.test(\"C54403 The id is not null\", function () {",
-                      "    var jsonData = pm.response.json();",
-                      "    pm.expect(jsonData.results._id) !== null;",
-                      "});",
-                      "",
-                      "pm.test(\"C54403 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
+                      "pm.test(\"C54404 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
                       "    var jsonData = pm.response.json();",
                       "    var user_Level_Name = pm.environment.get(\"user_Level_Name\");",
                       "    pm.expect(jsonData.code).to.eql(200);",
@@ -6588,18 +6583,18 @@
                       "});",
                       "",
                       "//This API returns a single record. So the results should be an object.",
-                      "pm.test(\"C54403 Verify that the results is an object\", function () {",
+                      "pm.test(\"C54404 Verify that the results is an object\", function () {",
                       "    var jsonData = pm.response.json();",
                       "    pm.expect(typeof jsonData.results).to.eql(\"object\");",
                       "});",
                       "",
-                      "pm.test(\"C54403 Verify that created and modified fields are included in the response\", function () {",
+                      "pm.test(\"C54404 Verify that created and modified fields are included in the response\", function () {",
                       "    var jsonData = pm.response.json();",
                       "    pm.expect(jsonData.results).to.have.property('created');",
                       "    pm.expect(jsonData.results).to.have.property('modified');",
                       "});",
                       "",
-                      "pm.test(\"C54403 Verify that status code in the response matches the HTTP status code\", function () {",
+                      "pm.test(\"C54404 Verify that status code in the response matches the HTTP status code\", function () {",
                       "    var jsonData = pm.response.json();",
                       "    pm.expect(jsonData.code).to.eql(responseCode.code);",
                       "});"
@@ -6617,9 +6612,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"name\": \"EDITED {{user_Level_Name}}\",\n\t\"description\": \"User level created through API tests.\"\n}"
+                  "raw": "{\n\t\"name\": [],\n\t\"description\": 999\n}"
                 },
-                "url": "http://{{url}}/api/userLevels/{{user_Level_ID}}"
+                "url": "http://{{url}}/api/userLevels/{{user_Level_ID}}",
+                "description": "using wrong datatypes in form fields and trying to submit\n\nedit: seems like we accept booleans, ints, and strings but arrays cause a 500 error so they dont seem to be handled properly."
               },
               "response": []
             }
