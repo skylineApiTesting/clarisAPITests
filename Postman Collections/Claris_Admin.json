@@ -6609,7 +6609,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"name\": [],\n\t\"description\": 999\n}"
+                  "raw": "{\n\t\"name\": 2343.234342,\n\t\"description\": 54654645.654645\n}"
                 },
                 "url": "http://{{url}}/api/userLevels/{{user_Level_ID}}",
                 "description": "using wrong datatypes in form fields and trying to submit\n\nedit: seems like we accept booleans, ints, and strings but arrays cause a 500 error so they dont seem to be handled properly."
