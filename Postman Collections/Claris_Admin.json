@@ -6676,7 +6676,6 @@
                   "listen": "test",
                   "script": {
                     "id": "b7347fc5-70ad-4b62-8170-97ae0305a50a",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"C76309 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
                       "    var jsonData = pm.response.json();",
@@ -6699,7 +6698,8 @@
                       "    var jsonData = pm.response.json();",
                       "    pm.expect(jsonData.code).to.eql(responseCode.code);",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -6713,7 +6713,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"name\": \"'; AND 1 = SLEEP(2);--\",\n\t\"description\": \"test\"\n}"
+                  "raw": "{\n\t\"name\": \"test'\",\n\t\"description\": \"test\"\n}"
                 },
                 "url": "http://{{url}}/api/userLevels/{{user_Level_ID}}",
                 "description": "using empty fields in form fields and trying to submit\n\nattempts a sql injection"
