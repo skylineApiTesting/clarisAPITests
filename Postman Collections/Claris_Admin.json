@@ -6561,6 +6561,67 @@
                 "url": "http://{{url}}/api/userLevels/{{user_Level_ID}}"
               },
               "response": []
+            },
+            {
+              "_postman_id": "b73085f2-4dcc-40aa-b579-d4e3fcf904b1",
+              "name": "Patch User level Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "13aa2ef9-e9fb-4c7c-b4c4-f89ed4ceb63c",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"C54403 The id is not null\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.results._id) !== null;",
+                      "});",
+                      "",
+                      "pm.test(\"C54403 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    var user_Level_Name = pm.environment.get(\"user_Level_Name\");",
+                      "    pm.expect(jsonData.code).to.eql(200);",
+                      "    pm.expect(jsonData.success).to.eql(true);",
+                      "    pm.expect(jsonData.results.name).to.eql(\"EDITED \" + user_Level_Name);",
+                      "    pm.expect(jsonData.warnings).to.eql(null);",
+                      "    pm.expect(jsonData.errors).to.eql(null);",
+                      "});",
+                      "",
+                      "//This API returns a single record. So the results should be an object.",
+                      "pm.test(\"C54403 Verify that the results is an object\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(typeof jsonData.results).to.eql(\"object\");",
+                      "});",
+                      "",
+                      "pm.test(\"C54403 Verify that created and modified fields are included in the response\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.results).to.have.property('created');",
+                      "    pm.expect(jsonData.results).to.have.property('modified');",
+                      "});",
+                      "",
+                      "pm.test(\"C54403 Verify that status code in the response matches the HTTP status code\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.code).to.eql(responseCode.code);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"name\": \"EDITED {{user_Level_Name}}\",\n\t\"description\": \"User level created through API tests.\"\n}"
+                },
+                "url": "http://{{url}}/api/userLevels/{{user_Level_ID}}"
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
@@ -6859,32 +6920,32 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "db438546-76e7-48f9-8ebc-6a6697dca8f6",
+                    "id": "f1a6819c-e4c7-4bbe-b313-c19cf69224fa",
                     "type": "text/javascript",
                     "exec": [
-                      "pm.test(\"C44703 The id is not null\", function () {",
+                      "pm.test(\"C45151 The id is not null\", function () {",
                       "    var jsonData = pm.response.json();",
                       "    pm.expect(jsonData.results) === null;",
                       "});",
                       "",
                       "// Purpose: Verify that inactive can not be set to TRUE without a reason given.",
-                      "pm.test(\"C44703 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
+                      "pm.test(\"C45151 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
                       "    var jsonData = pm.response.json();",
                       "    var inactive_True = pm.environment.get(\"inactive_True\");",
-                      "    pm.expect(jsonData.code).to.eql(500);",
-                      "    pm.expect(jsonData.success).to.eql(false);",
+                      "    pm.expect(jsonData.code).to.eql(200);",
+                      "    pm.expect(jsonData.success).to.eql(true);",
                       "    pm.expect(jsonData.warnings).to.eql(null);",
                       "    pm.expect(jsonData.errors).to.eql(null);",
                       "});",
                       "",
                       "//This API returns a single record. So the results should be an object.",
-                      "pm.test(\"C44703 Verify that the results is an object\", function () {",
+                      "pm.test(\"C45151 Verify that the results is an object\", function () {",
                       "    var jsonData = pm.response.json();",
                       "    pm.expect(typeof jsonData.results).to.eql(\"object\");",
                       "});",
                       "",
                       "",
-                      "pm.test(\"C44703 Verify that status code in the response matches the HTTP status code\", function () {",
+                      "pm.test(\"C45151 Verify that status code in the response matches the HTTP status code\", function () {",
                       "    var jsonData = pm.response.json();",
                       "    pm.expect(jsonData.code).to.eql(responseCode.code);",
                       "});"
