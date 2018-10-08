@@ -6713,7 +6713,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"name\": \"tom'; SELECT tom FROM USERS\",\n\t\"description\": \"test\"\n}"
+                  "raw": "{\n\t\"name\": \"tom';--\",\n\t\"description\": \"test\"\n}"
                 },
                 "url": "http://{{url}}/api/userLevels/{{user_Level_ID}}",
                 "description": "using empty fields in form fields and trying to submit\n\nattempts a sql injection"
