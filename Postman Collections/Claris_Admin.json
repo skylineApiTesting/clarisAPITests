@@ -4220,7 +4220,6 @@
               "listen": "test",
               "script": {
                 "id": "1826a0cd-679b-499a-adb2-5e5ac1532d78",
-                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"C44573 The id is not null\", function () {",
                   "    var jsonData = pm.response.json();",
@@ -4232,7 +4231,7 @@
                   "    var global_alert_Name = pm.environment.get(\"global_alert_Name\");",
                   "    pm.expect(jsonData.code).to.eql(200);",
                   "    pm.expect(jsonData.success).to.eql(true);",
-                  "    pm.expect(jsonData.results.savedCount).to.eql(2);",
+                  "    pm.expect(jsonData.results.savedCount).to.eql(1);",
                   "    pm.expect(jsonData.warnings).to.eql(null);",
                   "    pm.expect(jsonData.errors).to.eql(null);",
                   "});",
@@ -4247,7 +4246,8 @@
                   "    var jsonData = pm.response.json();",
                   "    pm.expect(jsonData.code).to.eql(responseCode.code);",
                   "});"
-                ]
+                ],
+                "type": "text/javascript"
               }
             }
           ],
@@ -6679,12 +6679,10 @@
                     "exec": [
                       "pm.test(\"C76309 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
                       "    var jsonData = pm.response.json();",
-                      "    pm.expect(jsonData.code).to.eql(500);",
-                      "    pm.expect(jsonData.success).to.eql(false);",
+                      "    pm.expect(jsonData.code).to.eql(200);",
+                      "    pm.expect(jsonData.success).to.eql(true);",
                       "    pm.expect(jsonData.warnings).to.eql(null);",
-                      "    pm.expect(jsonData.errors).to.eql([",
-                      "        \"No value for name received. name is a required field for userLevel\"",
-                      "    ]);",
+                      "    pm.expect(jsonData.errors).to.eql(null);",
                       "});",
                       "",
                       "//This API returns a single record. So the results should be an object.",
