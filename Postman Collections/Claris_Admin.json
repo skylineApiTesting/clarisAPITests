@@ -2468,7 +2468,6 @@
                   "listen": "test",
                   "script": {
                     "id": "721a2728-9f32-43c3-8696-a4c603e87f08",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"C44692 The id is not null\", function () {",
                       "    var jsonData = pm.response.json();",
@@ -2485,7 +2484,7 @@
                       "    pm.expect(jsonData.code).to.eql(200);",
                       "    pm.expect(jsonData.success).to.eql(true);",
                       "    pm.expect(jsonData.results.username).to.eql(user_Name);",
-                      "    pm.expect(jsonData.warnings).to.eql(null);",
+                      "    pm.expect(jsonData.warnings).to.eql([]);",
                       "    pm.expect(jsonData.errors).to.eql(null);",
                       "});",
                       "",
@@ -2505,7 +2504,8 @@
                       "    var jsonData = pm.response.json();",
                       "    pm.expect(jsonData.code).to.eql(responseCode.code);",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -4276,7 +4276,6 @@
               "listen": "test",
               "script": {
                 "id": "2c881db6-0e86-4c0c-af44-ef24140786fc",
-                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"C44572 The id is not null\", function () {",
                   "    var jsonData = pm.response.json();",
@@ -4303,7 +4302,8 @@
                   "    var jsonData = pm.response.json();",
                   "    pm.expect(jsonData.code).to.eql(responseCode.code);",
                   "});"
-                ]
+                ],
+                "type": "text/javascript"
               }
             }
           ],
@@ -4317,7 +4317,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "[\r\n  {\r\n    \"Username\": \"User {{$randomInt}} {{$randomInt}}\",\r\n    \"First Name\": \"tim \",\r\n    \"Last Name\": \"timmy\",\r\n    \"Email\": \"ttimmy@test.com\",\r\n    \"Phone\": \"No\",\r\n    \"Organization\": \"A Test\",\r\n    \"Role\": \"globalAdmin\",\r\n    \"Level\": \"{{user_Level_ID}}\"\r\n  }\r\n]"
+              "raw": "[\r\n  {\r\n    \"Username\": \"User {{$randomInt}} {{$randomInt}}\",\r\n    \"First Name\": \"tim \",\r\n    \"Last Name\": \"timmy\",\r\n    \"Email\": \"ttimmy{{$randomInt}}@test.com\",\r\n    \"Phone\": \"No\",\r\n    \"Organization\": \"A Test\",\r\n    \"Role\": \"globalAdmin\",\r\n    \"Level\": \"{{user_Level_ID}}\"\r\n  }\r\n]"
             },
             "url": "http://{{url}}/api/import/users/json",
             "description": "imports a single user through the import json option"
