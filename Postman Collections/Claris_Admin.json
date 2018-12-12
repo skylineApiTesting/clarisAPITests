@@ -10177,10 +10177,24 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"username\": \"test name {{$timestamp}}\",\n\t\"role_id\": \"{{user_operator_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Nancy\",\n\t\t\"last\": \"Williams\"\n\t},\n\t\"email\": \"nwilliams{{$timestamp}}@test.com\",\n\t\"phones\": [],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"Camera Tech\",\n\t\"department\": \"VDOT\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"{{password}}\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\"\n}"
+              "raw": "{\n\t\"username\": \"qaadmin\",\n\t\"role_id\": \"{{user_operator_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Nancy\",\n\t\t\"last\": \"Williams\"\n\t},\n\t\"email\": \"nwilliams{{$timestamp}}@test.com\",\n\t\"phones\": [],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"LDAP User\",\n\t\"department\": \"SysAdmin\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"Skyl1n3!\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\"\n}"
             },
             "url": "http://{{url}}/api/users",
             "description": "creates a new user for VDOT - Central richmond organization. the info for the user is saved as environment variables and used by the other apis\n\ntriggered by:\n-filling out new user form and clicking save\n\ntests:\n1) 200 code\n2) response < 200ms\n3) user is created and variables are saved."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "a39ff674-bf66-41c5-b6f0-d657369ab7a9",
+          "name": "Set LDAP for organization",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": ""
           },
           "response": []
         }
