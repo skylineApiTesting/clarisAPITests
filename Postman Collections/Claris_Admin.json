@@ -10185,20 +10185,6 @@
           "response": []
         },
         {
-          "_postman_id": "a39ff674-bf66-41c5-b6f0-d657369ab7a9",
-          "name": "Set LDAP for organization",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": ""
-          },
-          "response": []
-        },
-        {
           "_postman_id": "c002d9b7-eaac-48bf-9969-5ce478dbc9a7",
           "name": "Patch organization Copy",
           "event": [
