@@ -6097,67 +6097,6 @@
                 "description": "update an existing organization. This test uses the same organization as the one that was previously created. it updates the primary location of the organization.\n\ntriggered by:\nediting an organization\n\ntests:\n1) status 200\n2) response < 200ms\n3) primary location address now equals 9309 glen vista road"
               },
               "response": []
-            },
-            {
-              "_postman_id": "c002d9b7-eaac-48bf-9969-5ce478dbc9a7",
-              "name": "Patch organization Copy",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "a4b87597-f295-4242-97d6-96a99b139ef0",
-                    "type": "text/javascript",
-                    "exec": [
-                      "pm.test(\"C73596 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
-                      "    var jsonData = pm.response.json();",
-                      "    var organization_Name = pm.environment.get(\"organization_Name\");",
-                      "    pm.expect(jsonData.code).to.eql(200);",
-                      "    pm.expect(jsonData.success).to.eql(true);",
-                      "    pm.expect(jsonData.results.name).to.eql(\"EDITED \" + organization_Name);",
-                      "    pm.expect(jsonData.warnings).to.eql(null);",
-                      "    pm.expect(jsonData.errors).to.eql(null);",
-                      "});",
-                      "",
-                      "//This API returns a single record. So the results should be an object.",
-                      "pm.test(\"C73596 Verify that the results is an object\", function () {",
-                      "    var jsonData = pm.response.json();",
-                      "    pm.expect(typeof jsonData.results).to.eql(\"object\");",
-                      "});",
-                      "",
-                      "pm.test(\"C73596 Verify that created and modified fields are included in the response\", function () {",
-                      "    var jsonData = pm.response.json();",
-                      "    pm.expect(jsonData.results).to.have.property('created');",
-                      "    pm.expect(jsonData.results).to.have.property('modified');",
-                      "});",
-                      "",
-                      "pm.test(\"C73596 Verify that status code in the response matches the HTTP status code\", function () {",
-                      "    var jsonData = pm.response.json();",
-                      "    pm.expect(jsonData.code).to.eql(responseCode.code);",
-                      "});",
-                      "",
-                      "pm.test(\"C73596 Response time is less than 200ms\", function () {",
-                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
-                      "});"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"EDITED {{organization_Name}}\",\n  \"contact\": \"{{contact}}\",\n  \"phone\": \"{{valid_phone}}\",\n  \"recordVideo\": false,\n  \"videoRetentionNotes\": \"Update Org API Test\",\n  \"primaryLocationName\": \"Perry Hall\",\n  \"primaryLocationAddress\": \"9309 Glen Vista Road\",\n  \"primaryLocationCity\": \"Perry Hall\",\n  \"primaryLocationState\": \"MD\",\n  \"primaryLocationZipcode\": \"21128\",\n  \"administratorName\": {\n    \"first\": \"\",\n    \"last\": \"\"\n  },\n  \"administratorTitle\": \"\",\n  \"administratorEmail\": \"\",\n  \"administratorPhone\": \"\",\n  \"videoAdministratorName\": {\n    \"first\": \"\",\n    \"last\": \"\"\n  },\n  \"videoAdministratorTitle\": \"\",\n  \"videoAdministratorEmail\": \"\",\n  \"videoAdministratorPhone\": \"\",\n  \"authType\": \"Local Authentication\",\n  \"ldapConfig\": null\n}"
-                },
-                "url": "http://{{url}}/api/organizations/{{organization_ID}}",
-                "description": "update an existing organization. This test uses the same organization as the one that was previously created. it updates the primary location of the organization.\n\ntriggered by:\nediting an organization\n\ntests:\n1) status 200\n2) response < 200ms\n3) primary location address now equals 9309 glen vista road"
-              },
-              "response": []
             }
           ],
           "_postman_isSubFolder": true
@@ -10246,16 +10185,63 @@
           "response": []
         },
         {
-          "_postman_id": "a39ff674-bf66-41c5-b6f0-d657369ab7a9",
-          "name": "Set LDAP for organization",
+          "_postman_id": "c002d9b7-eaac-48bf-9969-5ce478dbc9a7",
+          "name": "Patch organization Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "a4b87597-f295-4242-97d6-96a99b139ef0",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"C73596 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    var organization_Name = pm.environment.get(\"organization_Name\");",
+                  "    pm.expect(jsonData.code).to.eql(200);",
+                  "    pm.expect(jsonData.success).to.eql(true);",
+                  "    pm.expect(jsonData.results.name).to.eql(\"EDITED \" + organization_Name);",
+                  "    pm.expect(jsonData.warnings).to.eql(null);",
+                  "    pm.expect(jsonData.errors).to.eql(null);",
+                  "});",
+                  "",
+                  "//This API returns a single record. So the results should be an object.",
+                  "pm.test(\"C73596 Verify that the results is an object\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(typeof jsonData.results).to.eql(\"object\");",
+                  "});",
+                  "",
+                  "pm.test(\"C73596 Verify that created and modified fields are included in the response\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.results).to.have.property('created');",
+                  "    pm.expect(jsonData.results).to.have.property('modified');",
+                  "});",
+                  "",
+                  "pm.test(\"C73596 Verify that status code in the response matches the HTTP status code\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.code).to.eql(responseCode.code);",
+                  "});",
+                  "",
+                  "pm.test(\"C73596 Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
           "request": {
-            "method": "GET",
-            "header": [],
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
-              "raw": ""
+              "raw": "{\n  \"name\": \"EDITED {{organization_Name}}\",\n  \"contact\": \"{{contact}}\",\n  \"phone\": \"{{valid_phone}}\",\n  \"recordVideo\": false,\n  \"videoRetentionNotes\": \"Update Org API Test\",\n  \"primaryLocationName\": \"Perry Hall\",\n  \"primaryLocationAddress\": \"9309 Glen Vista Road\",\n  \"primaryLocationCity\": \"Perry Hall\",\n  \"primaryLocationState\": \"MD\",\n  \"primaryLocationZipcode\": \"21128\",\n  \"administratorName\": {\n    \"first\": \"\",\n    \"last\": \"\"\n  },\n  \"administratorTitle\": \"\",\n  \"administratorEmail\": \"\",\n  \"administratorPhone\": \"\",\n  \"videoAdministratorName\": {\n    \"first\": \"\",\n    \"last\": \"\"\n  },\n  \"videoAdministratorTitle\": \"\",\n  \"videoAdministratorEmail\": \"\",\n  \"videoAdministratorPhone\": \"\",\n  \"authType\": \"Local Authentication\",\n  \"ldapConfig\": null\n}"
             },
-            "url": ""
+            "url": "http://{{url}}/api/organizations/{{organization_ID}}",
+            "description": "update an existing organization. This test uses the same organization as the one that was previously created. it updates the primary location of the organization.\n\ntriggered by:\nediting an organization\n\ntests:\n1) status 200\n2) response < 200ms\n3) primary location address now equals 9309 glen vista road"
           },
           "response": []
         }
