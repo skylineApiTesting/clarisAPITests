@@ -2525,6 +2525,72 @@
                 "description": "creates a new user for VDOT - Central richmond organization. the info for the user is saved as environment variables and used by the other apis\n\ntriggered by:\n-filling out new user form and clicking save\n\ntests:\n1) 200 code\n2) response < 200ms\n3) user is created and variables are saved."
               },
               "response": []
+            },
+            {
+              "_postman_id": "a62e4f98-f63d-48e3-a3ee-b56cc85e9e01",
+              "name": "Create a user Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "721a2728-9f32-43c3-8696-a4c603e87f08",
+                    "exec": [
+                      "pm.test(\"C44692 The id is not null\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.results._id) !== null;",
+                      "    pm.environment.unset(\"user_ID\");",
+                      "    pm.environment.unset(\"user_Name\");",
+                      "    pm.environment.set(\"user_ID\",jsonData.results._id);",
+                      "    pm.environment.set(\"user_Name\",jsonData.results.username);",
+                      "});",
+                      "",
+                      "pm.test(\"C44692 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    var user_Name = pm.environment.get(\"user_Name\");",
+                      "    pm.expect(jsonData.code).to.eql(200);",
+                      "    pm.expect(jsonData.success).to.eql(true);",
+                      "    pm.expect(jsonData.results.username).to.eql(user_Name);",
+                      "    pm.expect(jsonData.warnings).to.eql([]);",
+                      "    pm.expect(jsonData.errors).to.eql(null);",
+                      "});",
+                      "",
+                      "//This API returns a single record. So the results should be an object.",
+                      "pm.test(\"C44692 Verify that the results is an object\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(typeof jsonData.results).to.eql(\"object\");",
+                      "});",
+                      "",
+                      "pm.test(\"C44692 Verify that created and modified fields are included in the response\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.results).to.have.property('created');",
+                      "    pm.expect(jsonData.results).to.have.property('modified');",
+                      "});",
+                      "",
+                      "pm.test(\"C44692 Verify that status code in the response matches the HTTP status code\", function () {",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.code).to.eql(responseCode.code);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"username\": \"test name {{$timestamp}}\",\n\t\"role_id\": \"{{user_operator_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Nancy\",\n\t\t\"last\": \"Williams\"\n\t},\n\t\"email\": \"nwilliams{{$timestamp}}@test.com\",\n\t\"phones\": [],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"Camera Tech\",\n\t\"department\": \"VDOT\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"{{password}}\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\"\n}"
+                },
+                "url": "http://{{url}}/api/users",
+                "description": "creates a new user for VDOT - Central richmond organization. the info for the user is saved as environment variables and used by the other apis\n\ntriggered by:\n-filling out new user form and clicking save\n\ntests:\n1) 200 code\n2) response < 200ms\n3) user is created and variables are saved."
+              },
+              "response": []
             }
           ],
           "_postman_isSubFolder": true
