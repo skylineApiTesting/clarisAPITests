@@ -10041,6 +10041,12 @@
           "response": []
         }
       ]
+    },
+    {
+      "_postman_id": "b65a8039-601a-403d-8fcd-2b081a5c3821",
+      "name": "LDAP",
+      "description": "",
+      "item": []
     }
   ],
   "event": [
