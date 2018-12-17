@@ -10218,6 +10218,38 @@
             "description": "Log out user."
           },
           "response": []
+        },
+        {
+          "_postman_id": "03976a1c-ac38-4124-ac7c-d38c821ea66f",
+          "name": "Login valid Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b766dff9-f008-4e55-920a-b67bf7f4d71e",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\":\"{{current_user}}\",\"password\":\"{{password}}\",\"timezone\":\"America/New_York\"}"
+            },
+            "url": "https://{{url}}/api/login",
+            "description": "Logs a user into claris.\n\nTriggered by:\nLogging into the site.\n\nTests:\n1) Status code is 200\n2) Body contains a field called 'authenticated', and that field is equal to true\n3) Response time < 200ms"
+          },
+          "response": []
         }
       ]
     }
