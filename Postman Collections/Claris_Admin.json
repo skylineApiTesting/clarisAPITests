@@ -10099,12 +10099,6 @@
               "script": {
                 "id": "a6818daf-b23a-46c9-aa91-b3974a982f69",
                 "exec": [
-                  "pm.test(\"C44274 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
-                  "    var jsonData = pm.response.json();",
-                  "    var organization_Name = pm.environment.get(\"organization_Name\");",
-                  "    pm.expect(jsonData.code).to.eql(200);",
-                  "});",
-                  "",
                   ""
                 ],
                 "type": "text/javascript"
