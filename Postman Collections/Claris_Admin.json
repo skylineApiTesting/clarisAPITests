@@ -10049,7 +10049,7 @@
       "item": [
         {
           "_postman_id": "571e5610-57db-4b3b-a2c7-391e70d8a8ef",
-          "name": "Login valid Copy",
+          "name": "Login valid",
           "event": [
             {
               "listen": "test",
