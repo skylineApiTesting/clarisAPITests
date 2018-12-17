@@ -10169,9 +10169,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"username\": \"qaadmin\",\n\t\"role_id\": \"{{user_operator_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Nancy\",\n\t\t\"last\": \"Williams\"\n\t},\n\t\"email\": \"nwilliams{{$timestamp}}@test.com\",\n\t\"phones\": [],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"LDAP User\",\n\t\"department\": \"SysAdmin\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"Skyl1n3!\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\"\n}"
+              "raw": "{\n\t\"username\": \"qaadmin\",\n\t\"role_id\": \"{{user_operator_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Nancy\",\n\t\t\"last\": \"Williams\"\n\t},\n\t\"email\": \"nwilliams{{$timestamp}}@test.com\",\n\t\"phones\": [],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"LDAP User\",\n\t\"department\": \"SysAdmin\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"Skyl1n3!\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"5c181fc70d99131d0425349e\"\n}"
             },
-            "url": "http://{{url}}/api/users"
+            "url": "https://{{url}}/api/users"
           },
           "response": []
         },
