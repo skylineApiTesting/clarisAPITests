@@ -10120,7 +10120,7 @@
         },
         {
           "_postman_id": "a62e4f98-f63d-48e3-a3ee-b56cc85e9e01",
-          "name": "Create a user Copy",
+          "name": "Create the LDAP user",
           "event": [
             {
               "listen": "test",
@@ -10179,8 +10179,7 @@
               "mode": "raw",
               "raw": "{\n\t\"username\": \"qaadmin\",\n\t\"role_id\": \"{{user_operator_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Nancy\",\n\t\t\"last\": \"Williams\"\n\t},\n\t\"email\": \"nwilliams{{$timestamp}}@test.com\",\n\t\"phones\": [],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"LDAP User\",\n\t\"department\": \"SysAdmin\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"Skyl1n3!\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"{{organization_ID}}\"\n}"
             },
-            "url": "http://{{url}}/api/users",
-            "description": "creates a new user for VDOT - Central richmond organization. the info for the user is saved as environment variables and used by the other apis\n\ntriggered by:\n-filling out new user form and clicking save\n\ntests:\n1) 200 code\n2) response < 200ms\n3) user is created and variables are saved."
+            "url": "http://{{url}}/api/users"
           },
           "response": []
         },
