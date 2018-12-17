@@ -10244,10 +10244,41 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\"username\":\"qaadminyeah\",\"password\":\"P@$$w0rd#1\",\"timezone\":\"America/New_York\"}"
+              "raw": "{\"username\":\"qaadmin\",\"password\":\"P@$$w0rd#1\",\"timezone\":\"America/New_York\"}"
             },
             "url": "https://{{url}}/api/login",
             "description": "Logs a user into claris.\n\nTriggered by:\nLogging into the site.\n\nTests:\n1) Status code is 200\n2) Body contains a field called 'authenticated', and that field is equal to true\n3) Response time < 200ms"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "fa28c2c6-d007-4008-9f54-0d6d460ed6e2",
+          "name": "Create an LDAP organization Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "a6818daf-b23a-46c9-aa91-b3974a982f69",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"LDAP Org\",\n  \"contact\": \"Jenn\",\n  \"phone\": \"4100254562\",\n  \"recordVideo\": false,\n  \"videoRetentionNotes\": \"\",\n  \"primaryLocationName\": \"\",\n  \"primaryLocationAddress\": \"\",\n  \"primaryLocationCity\": \"\",\n  \"primaryLocationState\": \"\",\n  \"primaryLocationZipcode\": \"\",\n  \"administratorName\": {\n    \"first\": \"\",\n    \"last\": \"\"\n  },\n  \"administratorTitle\": \"\",\n  \"administratorEmail\": \"\",\n  \"administratorPhone\": \"\",\n  \"videoAdministratorName\": {\n    \"first\": \"\",\n    \"last\": \"\"\n  },\n  \"videoAdministratorTitle\": \"\",\n  \"videoAdministratorEmail\": \"\",\n  \"videoAdministratorPhone\": \"\",\n  \"authType\": \"LDAP Server\",\n  \"ldapConfig\": {\n    \"bindDn\": \"CN=QA Admin,OU=QA,OU=Development,DC=sky,DC=hss\",\n    \"bindSecret\": \"P@$$w0rd#1\",\n    \"searchBase\": \"OU=Development,DC=sky,DC=hss\",\n    \"searchAttribute\": \"samaccountname\",\n    \"connectionTimeout\": \"10\",\n    \"searchTimeout\": \"10\",\n    \"primary\": {\n      \"protocol\": \"ldap\",\n      \"host\": \"Hss-mclean-dc01.sky.hss\",\n      \"port\": \"389\"\n    },\n    \"backup\": {\n      \"protocol\": \"\",\n      \"host\": \"\",\n      \"port\": \"\"\n    }\n  }\n}"
+            },
+            "url": "http://{{url}}/api/organizations"
           },
           "response": []
         }
