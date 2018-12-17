@@ -10221,7 +10221,7 @@
         },
         {
           "_postman_id": "03976a1c-ac38-4124-ac7c-d38c821ea66f",
-          "name": "Login valid Copy",
+          "name": "Valid LDAP login",
           "event": [
             {
               "listen": "test",
