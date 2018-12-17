@@ -10169,69 +10169,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"username\": \"qaadmin\",\n\t\"role_id\": \"{{user_operator_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Nancy\",\n\t\t\"last\": \"Williams\"\n\t},\n\t\"email\": \"nwilliams{{$timestamp}}@test.com\",\n\t\"phones\": [],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"LDAP User\",\n\t\"department\": \"SysAdmin\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"Skyl1n3!\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"5c181fc70d99131d0425349e\"\n}"
+              "raw": "{\n\t\"username\": \"qaadminyeah\",\n\t\"role_id\": \"{{user_operator_id}}\",\n\t\"name\": {\n\t\t\"first\": \"Nancy\",\n\t\t\"last\": \"Williams\"\n\t},\n\t\"email\": \"nwilliams{{$timestamp}}@test.com\",\n\t\"phones\": [],\n\t\"credentials\": [],\n\t\"level_id\": \"{{user_Level_ID}}\",\n\t\"regions\": [\n\t],\n\t\"jobTitle\": \"LDAP User\",\n\t\"department\": \"SysAdmin\",\n\t\"jobFunction\": \"123\",\n\t\"password\": \"Skyl1n3!\",\n\t\"devgroups\": [],\n\t\"organization_id\": \"5c181fc70d99131d0425349e\"\n}"
             },
             "url": "https://{{url}}/api/users"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "c002d9b7-eaac-48bf-9969-5ce478dbc9a7",
-          "name": "Make organization use LDAP",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "a4b87597-f295-4242-97d6-96a99b139ef0",
-                "exec": [
-                  "pm.test(\"C73596 Verify code, success, results, warning and errors are present and have the proper value\", function () {",
-                  "    var jsonData = pm.response.json();",
-                  "    var organization_Name = pm.environment.get(\"organization_Name\");",
-                  "    pm.expect(jsonData.code).to.eql(200);",
-                  "    pm.expect(jsonData.success).to.eql(true);",
-                  "    pm.expect(jsonData.results.name).to.eql(\"EDITED \" + organization_Name);",
-                  "    pm.expect(jsonData.warnings).to.eql(null);",
-                  "    pm.expect(jsonData.errors).to.eql(null);",
-                  "});",
-                  "",
-                  "//This API returns a single record. So the results should be an object.",
-                  "pm.test(\"C73596 Verify that the results is an object\", function () {",
-                  "    var jsonData = pm.response.json();",
-                  "    pm.expect(typeof jsonData.results).to.eql(\"object\");",
-                  "});",
-                  "",
-                  "pm.test(\"C73596 Verify that created and modified fields are included in the response\", function () {",
-                  "    var jsonData = pm.response.json();",
-                  "    pm.expect(jsonData.results).to.have.property('created');",
-                  "    pm.expect(jsonData.results).to.have.property('modified');",
-                  "});",
-                  "",
-                  "pm.test(\"C73596 Verify that status code in the response matches the HTTP status code\", function () {",
-                  "    var jsonData = pm.response.json();",
-                  "    pm.expect(jsonData.code).to.eql(responseCode.code);",
-                  "});",
-                  "",
-                  "pm.test(\"C73596 Response time is less than 200ms\", function () {",
-                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"Dont Matter\",\n  \"contact\": \"Jenn Preeling\",\n  \"phone\": \"4439041286\",\n  \"recordVideo\": false,\n  \"videoRetentionNotes\": \"Update Org API Test\",\n  \"primaryLocationName\": \"Perry Hall\",\n  \"primaryLocationAddress\": \"9309 Glen Vista Road\",\n  \"primaryLocationCity\": \"Perry Hall\",\n  \"primaryLocationState\": \"MD\",\n  \"primaryLocationZipcode\": \"21128\",\n  \"administratorName\": {\n    \"first\": \"\",\n    \"last\": \"\"\n  },\n  \"administratorTitle\": \"\",\n  \"administratorEmail\": \"\",\n  \"administratorPhone\": \"\",\n  \"videoAdministratorName\": {\n    \"first\": \"\",\n    \"last\": \"\"\n  },\n  \"videoAdministratorTitle\": \"\",\n  \"videoAdministratorEmail\": \"\",\n  \"videoAdministratorPhone\": \"\",\n  \"authType\": \"LDAP Server\",\n  \"ldapConfig\": {\n    \"adminDn\": \"CN=QA Admin,OU=QA,OU=Development,DC=sky,DC=hss\",\n    \"adminPassword\": \"P@$$w0rd#1\",\n    \"searchBase\": \"OU=Development,DC=sky,DC=hss\",\n    \"searchAttribute\": \"samaccountname\",\n    \"connectionTimeout\": \"10\",\n    \"searchTimeout\": \"10\",\n    \"primary\": {\n      \"connectionType\": \"Unencrypted\",\n      \"host\": \"172.28.53.135\",\n      \"port\": \"389\"\n    },\n    \"backup\": {\n      \"connectionType\": \"\",\n      \"host\": \"\",\n      \"port\": \"\"\n    }\n  }\n}"
-            },
-            "url": "http://{{url}}/api/organizations/{{organization_ID}}"
           },
           "response": []
         },
