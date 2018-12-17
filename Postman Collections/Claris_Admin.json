@@ -10113,8 +10113,7 @@
               "mode": "raw",
               "raw": "{\n  \"name\": \"test organization {{$timestamp}}\",\n  \"contact\": \"{{contact}}\",\n  \"phone\": \"{{valid_phone}}\",\n  \"recordVideo\": false,\n  \"videoRetentionNotes\": \"API Create Org Test\",\n  \"primaryLocationName\": \"\",\n  \"primaryLocationAddress\": \"\",\n  \"primaryLocationCity\": \"\",\n  \"primaryLocationState\": \"\",\n  \"primaryLocationZipcode\": \"\",\n  \"administratorName\": {\n    \"first\": \"\",\n    \"last\": \"\"\n  },\n  \"administratorTitle\": \"\",\n  \"administratorEmail\": \"\",\n  \"administratorPhone\": \"\",\n  \"videoAdministratorName\": {\n    \"first\": \"\",\n    \"last\": \"\"\n  },\n  \"videoAdministratorTitle\": \"\",\n  \"videoAdministratorEmail\": \"\",\n  \"videoAdministratorPhone\": \"\",\n  \"authType\": \"Local Authentication\",\n  \"ldapConfig\": null\n}"
             },
-            "url": "http://{{url}}/api/organizations",
-            "description": "creates an organization. sets org name and org id as environment variables. these variables are used by the patch and delete organization api tests.\n\ntriggered by:\nfilling out the add organization page and submitting the page\n\ntests:\n1) id is not null - this test also sets the org id and org name fields\n2) status code is 200\n3) response time is less than 200 ms"
+            "url": "http://{{url}}/api/organizations"
           },
           "response": []
         },
