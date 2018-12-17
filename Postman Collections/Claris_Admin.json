@@ -10049,7 +10049,7 @@
       "item": [
         {
           "_postman_id": "1bfe6b9d-5827-47f5-ab56-743e6eed2e62",
-          "name": "Create an organization Copy",
+          "name": "Create an organization",
           "event": [
             {
               "listen": "test",
