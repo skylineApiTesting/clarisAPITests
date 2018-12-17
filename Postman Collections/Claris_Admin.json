@@ -10241,6 +10241,49 @@
             "url": "http://{{url}}/api/organizations/{{organization_ID}}"
           },
           "response": []
+        },
+        {
+          "_postman_id": "571e5610-57db-4b3b-a2c7-391e70d8a8ef",
+          "name": "Login valid Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b766dff9-f008-4e55-920a-b67bf7f4d71e",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"C73586 Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"C73586 Authenticated is true\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.authenticated).to.eql(true);",
+                  "});",
+                  "",
+                  "pm.test(\"C73586 Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"username\":\"{{current_user}}\",\"password\":\"{{password}}\",\"timezone\":\"America/New_York\"}"
+            },
+            "url": "http://{{url}}/api/login",
+            "description": "Logs a user into claris.\n\nTriggered by:\nLogging into the site.\n\nTests:\n1) Status code is 200\n2) Body contains a field called 'authenticated', and that field is equal to true\n3) Response time < 200ms"
+          },
+          "response": []
         }
       ]
     }
