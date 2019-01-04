@@ -19,7 +19,6 @@
               "listen": "test",
               "script": {
                 "id": "7494d48f-5453-44f6-8651-66cd83c876cf",
-                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"C44085 Status code is 400\", function () {",
                   "    pm.response.to.have.status(400);",
@@ -35,7 +34,8 @@
                   "});",
                   "",
                   ""
-                ]
+                ],
+                "type": "text/javascript"
               }
             }
           ],
@@ -51,7 +51,7 @@
               "mode": "raw",
               "raw": "{\"username\":\"\",\"password\":\"\",\"timezone\":\"America/New_York\"}"
             },
-            "url": "http://{{url}}/api/login"
+            "url": "https://{{url}}/api/login"
           },
           "response": []
         },
@@ -476,7 +476,7 @@
               "mode": "raw",
               "raw": "{\"username\":\"{{current_user}}\",\"password\":\"{{password}}\",\"timezone\":\"America/New_York\"}"
             },
-            "url": "http://{{url}}/api/login/",
+            "url": "https://{{url}}/api/login/",
             "description": "Logs a user into claris.\n\nTriggered by:\nLogging into the site.\n\nTests:\n1) Status code is 200\n2) Body contains a field called 'authenticated', and that field is equal to true\n3) Response time < 200ms"
           },
           "response": []
