@@ -93,7 +93,7 @@
               "mode": "raw",
               "raw": "{\"username\":\"{{current_user}}\",\"password\":\"\",\"timezone\":\"America/New_York\"}"
             },
-            "url": "http://{{url}}/api/login"
+            "url": "https://{{url}}/api/login"
           },
           "response": []
         },
@@ -105,7 +105,6 @@
               "listen": "test",
               "script": {
                 "id": "738b8741-a2e1-4301-8e7f-79af7b537f9a",
-                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"C44087 Status code is 400\", function () {",
                   "    pm.response.to.have.status(400);",
@@ -119,7 +118,8 @@
                   "pm.test(\"C44087 Response time is less than 200ms\", function () {",
                   "    pm.expect(pm.response.responseTime).to.be.below(200);",
                   "});"
-                ]
+                ],
+                "type": "text/javascript"
               }
             }
           ],
@@ -135,7 +135,7 @@
               "mode": "raw",
               "raw": "{\"username\":\"\",\"password\":\"{{password}}\",\"timezone\":\"America/New_York\"}"
             },
-            "url": "http://{{url}}/api/login"
+            "url": "https://{{url}}/api/login"
           },
           "response": []
         },
@@ -147,7 +147,6 @@
               "listen": "test",
               "script": {
                 "id": "46e89f5d-a0ab-48e7-9489-e352b1d88053",
-                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"C44088 Status code is 401\", function () {",
                   "    pm.response.to.have.status(401);",
@@ -161,7 +160,8 @@
                   "pm.test(\"C44088 Response time is less than 200ms\", function () {",
                   "    pm.expect(pm.response.responseTime).to.be.below(200);",
                   "});"
-                ]
+                ],
+                "type": "text/javascript"
               }
             }
           ],
@@ -177,7 +177,7 @@
               "mode": "raw",
               "raw": "{\"username\":\"{{current_user}}\",\"password\":\"incorrectpassword\",\"timezone\":\"America/New_York\"}"
             },
-            "url": "http://{{url}}/api/login"
+            "url": "https://{{url}}/api/login"
           },
           "response": []
         },
@@ -189,7 +189,6 @@
               "listen": "test",
               "script": {
                 "id": "ac1e83ce-c916-4264-94f9-1a6760fff639",
-                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"C45040 Status code is 401\", function () {",
                   "    pm.response.to.have.status(401);",
@@ -203,7 +202,8 @@
                   "pm.test(\"C45040 Response time is less than 200ms\", function () {",
                   "    pm.expect(pm.response.responseTime).to.be.below(200);",
                   "});"
-                ]
+                ],
+                "type": "text/javascript"
               }
             }
           ],
@@ -219,7 +219,7 @@
               "mode": "raw",
               "raw": "{\"username\":\"invaliduser\",\"password\":\"{{password}}\",\"timezone\":\"America/New_York\"}"
             },
-            "url": "http://{{url}}/api/login"
+            "url": "https://{{url}}/api/login"
           },
           "response": []
         },
