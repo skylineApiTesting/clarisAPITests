@@ -231,7 +231,6 @@
               "listen": "test",
               "script": {
                 "id": "905879cd-a46f-4c9d-8bde-c84f2eb2ebc1",
-                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"C73583 Status code is 401\", function () {",
                   "    pm.response.to.have.status(401);",
@@ -245,7 +244,8 @@
                   "pm.test(\"C73583 Response time is less than 200ms\", function () {",
                   "    pm.expect(pm.response.responseTime).to.be.below(200);",
                   "});"
-                ]
+                ],
+                "type": "text/javascript"
               }
             }
           ],
@@ -261,7 +261,7 @@
               "mode": "raw",
               "raw": "{\"username\":\"{{special_characters}}\",\"password\":\"{{password}}\",\"timezone\":\"America/New_York\"}"
             },
-            "url": "http://{{url}}/api/login",
+            "url": "https://{{url}}/api/login",
             "description": "Logs a user into claris.\n\nTriggered by:\nLogging into the site.\n\nTests:\n1) Status code is 200\n2) Body contains a field called 'authenticated', and that field is equal to true\n3) Response time < 200ms"
           },
           "response": []
@@ -274,7 +274,6 @@
               "listen": "test",
               "script": {
                 "id": "755b6f70-42c9-4d2c-82ac-62000225883b",
-                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"C73584 Status code is 401\", function () {",
                   "    pm.response.to.have.status(401);",
@@ -288,7 +287,8 @@
                   "pm.test(\"C73584 Response time is less than 200ms\", function () {",
                   "    pm.expect(pm.response.responseTime).to.be.below(200);",
                   "});"
-                ]
+                ],
+                "type": "text/javascript"
               }
             }
           ],
@@ -304,7 +304,7 @@
               "mode": "raw",
               "raw": "{\"username\":\"{{current_user}}\",\"password\":\"{{special_characters}}\",\"timezone\":\"America/New_York\"}"
             },
-            "url": "http://{{url}}/api/login",
+            "url": "https://{{url}}/api/login",
             "description": "Logs a user into claris.\n\nTriggered by:\nLogging into the site.\n\nTests:\n1) Status code is 200\n2) Body contains a field called 'authenticated', and that field is equal to true\n3) Response time < 200ms"
           },
           "response": []
@@ -317,7 +317,6 @@
               "listen": "test",
               "script": {
                 "id": "648e57ad-688a-4c37-8431-ee88c0c47d44",
-                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"C45042 Status code is 401\", function() {",
                   "    pm.response.to.have.status(401);",
@@ -331,7 +330,8 @@
                   "pm.test(\"C45042 Response time is less than 200ms\", function () {",
                   "    pm.expect(pm.response.responseTime).to.be.below(200);",
                   "});"
-                ]
+                ],
+                "type": "text/javascript"
               }
             }
           ],
@@ -347,7 +347,7 @@
               "mode": "raw",
               "raw": "{\"username\":\"{{current_user}}\",\"password\":\"{{uppercase_password}}\",\"timezone\":\"America/New_York\"}"
             },
-            "url": "http://{{url}}/api/login"
+            "url": "https://{{url}}/api/login"
           },
           "response": []
         },
@@ -359,7 +359,6 @@
               "listen": "test",
               "script": {
                 "id": "534eb552-b03d-4d20-85f0-5bf080fb30df",
-                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"C45041 Status code is 200\", function () {",
                   "    pm.response.to.have.status(200);",
@@ -374,7 +373,8 @@
                   "    pm.expect(pm.response.responseTime).to.be.below(200);",
                   "});",
                   ""
-                ]
+                ],
+                "type": "text/javascript"
               }
             }
           ],
@@ -390,7 +390,7 @@
               "mode": "raw",
               "raw": "{\"username\":\"{{uppercase_username}}\",\"password\":\"{{password}}\",\"timezone\":\"America/New_York\"}"
             },
-            "url": "http://{{url}}/api/login"
+            "url": "https://{{url}}/api/login"
           },
           "response": []
         },
@@ -402,7 +402,6 @@
               "listen": "test",
               "script": {
                 "id": "9cb51101-5c02-4a8b-85c7-97a37de2c7a7",
-                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"C73585 Status code is 200\", function () {",
                   "    pm.response.to.have.status(200);",
@@ -417,7 +416,8 @@
                   "    pm.expect(pm.response.responseTime).to.be.below(200);",
                   "});",
                   ""
-                ]
+                ],
+                "type": "text/javascript"
               }
             }
           ],
@@ -433,7 +433,7 @@
               "mode": "raw",
               "raw": "{\"username\":\"{{global_username}}\",\"password\":\"skyl1n3!\",\"timezone\":\"America/New_York\"}"
             },
-            "url": "http://{{url}}/api/logout",
+            "url": "https://{{url}}/api/logout",
             "description": "Log out user."
           },
           "response": []
