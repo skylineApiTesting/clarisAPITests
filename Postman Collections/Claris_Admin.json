@@ -63,7 +63,6 @@
               "listen": "test",
               "script": {
                 "id": "8fc49549-7519-484b-a39e-b491df08cedf",
-                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"C44086 Status code is 400\", function () {",
                   "    pm.response.to.have.status(400);",
@@ -77,7 +76,8 @@
                   "pm.test(\"C44086 Response time is less than 200ms\", function () {",
                   "    pm.expect(pm.response.responseTime).to.be.below(200);",
                   "});"
-                ]
+                ],
+                "type": "text/javascript"
               }
             }
           ],
