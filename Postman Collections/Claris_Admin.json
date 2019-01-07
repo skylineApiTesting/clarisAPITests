@@ -803,7 +803,6 @@
                   "listen": "test",
                   "script": {
                     "id": "a6818daf-b23a-46c9-aa91-b3974a982f69",
-                    "type": "text/javascript",
                     "exec": [
                       "",
                       "pm.test(\"C44274 The id is not null\", function () {",
@@ -845,7 +844,8 @@
                       "pm.test(\"C44274 Response time is less than 200ms\", function () {",
                       "    pm.expect(pm.response.responseTime).to.be.below(200);",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
