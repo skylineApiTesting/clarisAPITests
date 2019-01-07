@@ -1165,21 +1165,20 @@
                   "listen": "prerequest",
                   "script": {
                     "id": "ca5ffe9d-ae28-4874-996c-91d09dced8c4",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.environment.unset(\"marker_dg_level_Name\");",
                       "",
                       "var marker_dg_level_Name = Math.floor((Math.random() * 1000000) + 1);",
                       "",
                       "pm.environment.set(\"marker_dg_level_Name\", \"Marker device group \" + marker_dg_level_Name.toString());"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "test",
                   "script": {
                     "id": "1598bf31-b61d-4821-80d8-59d53c949676",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"C54419 The id is not null\", function () {",
                       "    var jsonData = pm.response.json();",
@@ -1214,7 +1213,8 @@
                       "    var jsonData = pm.response.json();",
                       "    pm.expect(jsonData.code).to.eql(responseCode.code);",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -1230,7 +1230,7 @@
                   "mode": "raw",
                   "raw": "{\n\t\"name\": \"{{marker_dg_level_Name}}\",\n\t\"description\": \"this is a test marker/device group created through the api\"\n}"
                 },
-                "url": "http://{{url}}/api/markerLevels"
+                "url": "https://{{url}}/api/markerLevels"
               },
               "response": []
             },
