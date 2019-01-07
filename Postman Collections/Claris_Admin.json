@@ -452,7 +452,7 @@
                   "});",
                   "",
                   "pm.test(\"Body matches string\", function () {",
-                  "    pm.expect(pm.response.text()).to.include('authenticated\": true');",
+                  "    pm.expect(pm.response.text()).to.include('{\"authenticated\":true}');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -491,7 +491,6 @@
               "listen": "test",
               "script": {
                 "id": "6f068a4e-f88e-48cc-8285-d6f1ddab6bc5",
-                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Verify global, local, and operator roles are available\", function () {",
                   "    var jsonData = pm.response.json();",
@@ -528,7 +527,8 @@
                   "    var jsonData = pm.response.json();",
                   "    pm.expect(jsonData.code).to.eql(responseCode.code);",
                   "});"
-                ]
+                ],
+                "type": "text/javascript"
               }
             }
           ],
@@ -539,7 +539,7 @@
               "mode": "raw",
               "raw": ""
             },
-            "url": "http://{{url}}/api/roles",
+            "url": "https://{{url}}/api/roles",
             "description": "gets the roles and assigns them to an environment variable."
           },
           "response": []
