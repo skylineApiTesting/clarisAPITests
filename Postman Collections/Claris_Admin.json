@@ -450,7 +450,10 @@
                   "pm.test(\"C73586 Status code is 200\", function () {",
                   "    pm.response.to.have.status(200);",
                   "});",
-                  ""
+                  "",
+                  "pm.test(\"Body matches string\", function () {",
+                  "    pm.expect(pm.response.text()).to.include('authenticated\": true');",
+                  "});"
                 ],
                 "type": "text/javascript"
               }
