@@ -433,7 +433,7 @@
               "mode": "raw",
               "raw": "{\"username\":\"{{global_username}}\",\"password\":\"skyl1n3!\",\"timezone\":\"America/New_York\"}"
             },
-            "url": "https://{{url}}/api/logout",
+            "url": "{{url}}/api/logout",
             "description": "Log out user."
           },
           "response": []
