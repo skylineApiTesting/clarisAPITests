@@ -468,7 +468,7 @@
               "mode": "raw",
               "raw": "{\"username\":\"global_admin\",\"password\":\"smfZMWZvf5EAGCWm\",\"timezone\":\"America/New_York\"}"
             },
-            "url": "https://172.31.0.113/api/login",
+            "url": "https://{{url}}/api/login",
             "description": "Logs a user into claris.\n\nTriggered by:\nLogging into the site.\n\nTests:\n1) Status code is 200\n2) Body contains a field called 'authenticated', and that field is equal to true\n3) Response time < 200ms"
           },
           "response": []
