@@ -135,7 +135,7 @@
               "mode": "raw",
               "raw": "{\"username\":\"\",\"password\":\"{{password}}\",\"timezone\":\"America/New_York\"}"
             },
-            "url": "https://{{url}}/api/login"
+            "url": "{{url}}/api/login"
           },
           "response": []
         },
