@@ -452,7 +452,7 @@
                   "});",
                   "",
                   "pm.test(\"C73586 Authenticated is false\", function () {",
-                  "    console.log(pm.response)",
+                  "    console.log(pm.response.status)",
                   "    pm.expect(jsonData.authenticated).to.eql(true);",
                   "});",
                   "",
@@ -489,12 +489,12 @@
                 {
                   "key": "username",
                   "value": "",
-                  "type": "text"
+                  "equals": false
                 },
                 {
                   "key": "password",
                   "value": "",
-                  "type": "text"
+                  "equals": false
                 }
               ]
             },
