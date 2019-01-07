@@ -474,30 +474,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\"username\":\"{{current_user}}\",\"password\":\"{{password}}\",\"timezone\":\"America/New_York\"}"
+              "raw": "{\"username\":\"global_admin\",\"password\":\"smfZMWZvf5EAGCWm\",\"timezone\":\"America/New_York\"}"
             },
-            "url": {
-              "raw": "https://{{url}}/auth?username&password",
-              "protocol": "https",
-              "host": [
-                "{{url}}"
-              ],
-              "path": [
-                "auth"
-              ],
-              "query": [
-                {
-                  "key": "username",
-                  "value": "",
-                  "equals": false
-                },
-                {
-                  "key": "password",
-                  "value": "",
-                  "equals": false
-                }
-              ]
-            },
+            "url": "http://172.31.0.113/api/login",
             "description": "Logs a user into claris.\n\nTriggered by:\nLogging into the site.\n\nTests:\n1) Status code is 200\n2) Body contains a field called 'authenticated', and that field is equal to true\n3) Response time < 200ms"
           },
           "response": []
