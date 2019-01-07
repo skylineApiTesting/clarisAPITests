@@ -219,7 +219,7 @@
               "mode": "raw",
               "raw": "{\"username\":\"invaliduser\",\"password\":\"{{password}}\",\"timezone\":\"America/New_York\"}"
             },
-            "url": "https://{{url}}/api/login"
+            "url": "{{url}}/api/login"
           },
           "response": []
         },
@@ -261,7 +261,7 @@
               "mode": "raw",
               "raw": "{\"username\":\"{{special_characters}}\",\"password\":\"{{password}}\",\"timezone\":\"America/New_York\"}"
             },
-            "url": "https://{{url}}/api/login",
+            "url": "{{url}}/api/login",
             "description": "Logs a user into claris.\n\nTriggered by:\nLogging into the site.\n\nTests:\n1) Status code is 200\n2) Body contains a field called 'authenticated', and that field is equal to true\n3) Response time < 200ms"
           },
           "response": []
