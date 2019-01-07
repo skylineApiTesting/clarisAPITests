@@ -453,7 +453,7 @@
                   "",
                   "pm.test(\"C73586 Authenticated is false\", function () {",
                   "    console.log(pm.response.status)",
-                  "    pm.response.status.to.eql(\"Internal Server Error\");",
+                  "    expect(pm.response.status).to.eql(\"Internal Server Error\");",
                   "});",
                   "",
                   "pm.test(\"C73586 Response time is less than 200ms\", function () {",
